@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 const corsOptions = {
     origin: process.env.NODE_ENV === 'production' 
-        ? ['https://expenses-tracker-ho76.onrender.com', 'https://expenses-tracker-netlify.netlify.app']
+        ? ['https://semfu.netlify.app']
         : '*',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
