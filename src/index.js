@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const winston = require('winston');
+const { initDb } = require('./config/db');
 
 // Load environment variables
 dotenv.config();
@@ -38,21 +39,33 @@ if (process.env.NODE_ENV !== 'production') {
     }));
 }
 
-// Routes
-const authRoutes = require('./routes/authRoutes');
-const transactionRoutes = require('./routes/transactionRoutes');
-const advisoryRoutes = require('./routes/advisoryRoutes');
+// Initialize database
+async function startServer() {
+    try {
+        await initDb();
+        logger.info('Database initialized');
+    } catch (err) {
+        logger.error('Database initialization failed:', err);
+    }
 
-app.use('/api/auth', authRoutes);
-app.use('/api/transactions', transactionRoutes);
-app.use('/api/advisory', advisoryRoutes);
+    // Routes
+    const authRoutes = require('./routes/authRoutes');
+    const transactionRoutes = require('./routes/transactionRoutes');
+    const advisoryRoutes = require('./routes/advisoryRoutes');
 
-// Basic Route
-app.get('/', (req, res) => {
-    res.json({ message: 'Expenses Tracker API is running' });
-});
+    app.use('/api/auth', authRoutes);
+    app.use('/api/transactions', transactionRoutes);
+    app.use('/api/advisory', advisoryRoutes);
 
-// Start Server
-app.listen(PORT, () => {
-    logger.info(`Server is running on port ${PORT}`);
-});
+    // Basic Route
+    app.get('/', (req, res) => {
+        res.json({ message: 'Expenses Tracker API is running' });
+    });
+
+    // Start Server
+    app.listen(PORT, () => {
+        logger.info(`Server is running on port ${PORT}`);
+    });
+}
+
+startServer();
