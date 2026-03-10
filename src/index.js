@@ -48,6 +48,12 @@ async function startServer() {
         logger.error('Database initialization failed:', err);
     }
 
+    // Check for required environment variables
+    if (!process.env.JWT_SECRET) {
+        logger.warn('JWT_SECRET not set, using default for development');
+        process.env.JWT_SECRET = 'dev-secret-key-change-in-production';
+    }
+
     // Routes
     const authRoutes = require('./routes/authRoutes');
     const transactionRoutes = require('./routes/transactionRoutes');
