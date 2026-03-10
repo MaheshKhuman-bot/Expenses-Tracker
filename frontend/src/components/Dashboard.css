@@ -1,0 +1,204 @@
+.dashboard-page {
+    padding: 2.5rem;
+    flex: 1;
+}
+
+.page-header {
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.stat-value.success {
+    color: var(--success);
+}
+
+.stat-value.danger {
+    color: var(--danger);
+}
+
+.stat-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon-wrap.balance {
+    background: rgba(99, 102, 241, 0.12);
+    color: var(--accent-primary);
+}
+
+.stat-icon-wrap.income {
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--success);
+}
+
+.stat-icon-wrap.expense {
+    background: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+}
+
+/* Recent Activity */
+.recent-activity-card {
+    background: var(--bg-secondary);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+    font-size: 1.1rem;
+}
+
+.view-all-btn {
+    color: var(--accent-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.transaction-row:last-child {
+    border-bottom: none;
+}
+
+.trans-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.trans-icon.income {
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--success);
+}
+
+.trans-icon.expense {
+    background: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+}
+
+.trans-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.trans-category {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.trans-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.trans-amount {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.trans-amount.income {
+    color: var(--success);
+}
+
+.trans-amount.expense {
+    color: var(--danger);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-secondary);
+    padding: 4rem;
+}

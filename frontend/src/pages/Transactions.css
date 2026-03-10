@@ -1,0 +1,274 @@
+.transactions-page {
+    padding: 2.5rem;
+    flex: 1;
+}
+
+.transactions-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.transactions-page .page-header div h1 {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.transactions-page .page-header div p {
+    color: var(--text-secondary);
+}
+
+/* Add button */
+.add-transaction-btn {
+    background: var(--accent-primary);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.875rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.add-transaction-btn:hover {
+    background: #4f46e5;
+}
+
+.add-transaction-btn:active {
+    transform: scale(0.97);
+}
+
+/* Table card */
+.table-card {
+    background: var(--bg-secondary);
+    border-radius: 1.25rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-table thead tr {
+    background: var(--bg-tertiary);
+}
+
+.transactions-table th {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.transactions-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.transactions-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.transactions-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+/* Type badge */
+.type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.type-badge.income {
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--success);
+}
+
+.type-badge.expense {
+    background: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+}
+
+/* Amount */
+.amount-cell {
+    font-weight: 700;
+}
+
+.amount-cell.income {
+    color: var(--success);
+}
+
+.amount-cell.expense {
+    color: var(--danger);
+}
+
+/* Delete button */
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: color 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.delete-btn:hover {
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Empty state */
+.table-empty {
+    padding: 4rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* ---- Modal ---- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 460px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.form-group select option {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.modal-cancel-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-cancel-btn:hover {
+    background: var(--glass-bg);
+}
+
+.modal-submit-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: var(--accent-primary);
+    border: none;
+    border-radius: 0.75rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.modal-submit-btn:hover {
+    background: #4f46e5;
+}
+
+.modal-submit-btn:active {
+    transform: scale(0.97);
+}
